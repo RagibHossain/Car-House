@@ -1,0 +1,52 @@
+.ss1{
+    height: 50vh;
+    width: 100%;
+    background: url(../images/ash.jpg);
+    background-size: cover;
+    margin-top: 10px;
+}
+
+.ss2{
+    height: 50vh;
+    width: 100%;
+    background: url(../images/red.jpg);
+    background-size: cover;
+    margin-top: 10px;
+}
+
+.ss3{
+    height: 50vh;
+    width: 100%;
+    background: url(../images/ash.jpg);
+    background-size: cover;
+    margin-top: 10px;
+}
+
+.ss4{
+    height: 50vh;
+    width: 100%;
+    background: url(../images/red.jpg);
+    background-size: cover;
+    margin-top: 10px;
+}
+
+
+.ss h1{
+    padding-top: 100px;
+    text-align: center;
+    color: white;
+    background-color: #00000080;
+}
+
+.ss p{
+    text-align: center; 
+    line-height: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.ov{
+    width:100%;
+    height:50vh;
+    background-color: white;;
+}

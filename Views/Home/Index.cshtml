@@ -1,0 +1,314 @@
+﻿
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/_CarHouseLayout.cshtml";
+}
+
+
+
+    <head>
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </head>
+
+<body>
+    
+
+
+    <section class="headersec">
+        <div class="overlay">
+            <div class="imgone rellax" data-rellax-speed="5">
+            </div>
+            <div class="imgtwo rellax" data-rellax-speed="15">
+            </div>
+            <div class="imgthree rellax" data-rellax-speed="20">
+            </div>
+            <div class="slogan">
+                <h1>OFFERING YOU THE BEST IN THE AUTOMOBILE INDUSTRY</h1>
+            </div>
+            <img class="since" src="~/images/since.png">
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="aboutsec">
+    </section>
+
+
+
+
+
+
+    <section class="productsec">
+        <div class="overlay">
+            <div class="container box">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active " data-interval="5000">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="details">
+                                        <h2>OUR MINIVANS</h2>
+                                        <p>
+                                            Have you really seen this sleek minivan?
+                                            Check out our not so mini minivans available just one click away!
+                                        </p>
+                                       <a style="color: white" asp-controller="Product" asp-action="Products">SEE MORE</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="carimg">
+                                        <img src="~/images/minivan.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item " data-interval="5000">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="details">
+                                        <h2>EXCLUSIVE SPORTS CARS</h2>
+                                        <p>
+                                            Vroom vroom your way to flexing one of our
+                                            sports cars to your peasant friends. 100% guaranteed jealousy.
+                                        </p>
+                                        <button class="btnproduct"><a style="color: white" asp-controller="Home" asp-action="product">SEE MORE</a></button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="carimg">
+                                        <img src="~/images/sports.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item " data-interval="5000">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="details">
+                                        <h2>THE PERFECT SUV</h2>
+                                        <p>
+                                            Have had too many kids? Buy one of these and hire a driver to
+                                            drive your kids to where they need to be and go buy yourself a sportscar.
+                                        </p>
+                                        <button class="btnproduct"><a style="color: white" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="carimg">
+                                        <img src="~/images/suv.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item " data-interval="5000">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="details">
+                                        <h2>OUR SEDAN COLLECTION</h2>
+                                        <p>Yeah these are nice alright, but seriously check the sportscars out.</p>
+                                        <button class="btnproduct"><a style="color: white" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="carimg">
+                                        <img src="~/images/sedan.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item " data-interval="5000">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="details">
+                                        <h2>EXCLUSIVE SPORTS CARS</h2>
+                                        <p>Yeah thats the good stuff.</p>
+                                        <button class="btnproduct"><a style="color: white" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="carimg">
+                                        <img src="~/images/sports.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="brandsec">
+        <div class="">
+            <img src="~/images/a.png">
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="blogsec">
+        <div class="container-fluid">
+            <div class="a row">
+                <div class="a1 img-hover-zoom col-lg-4 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/b.jpeg">
+                        <div class="content">
+                            <h4 class="hvr">Live the dream</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="a2 img-hover-zoom col-lg-2 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/c.jpeg">
+                        <div class="content">
+                            <h4>Car life</h4>
+                            <p> Lorem ipsum is a dummy text an a lot.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="a3 img-hover-zoom col-lg-6 col-md-12">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/d.jpeg">
+                        <div class="content">
+                            <h4>Know your speed limit</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in stuff like this. Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in stuff like this. Lorem ipsum is a dummy text an a lot more
+                                but not really.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="b row">
+                <div class="b5 img-hover-zoom col-lg-4 col-md-12">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/bg.jpeg">
+                        <div class="content">
+                            <h4>Go the miles</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in stuff like this. Lorem ipsum is a dummy text an a lot more
+                                but not really.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="b4 img-hover-zoom col-lg-6 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/f.jpeg">
+                        <div class="content">
+                            <h4>Biggest car show in Dhaka</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in stuff like this. Lorem ipsum is a dummy text an a lot more
+                                but not really.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="b6 img-hover-zoom col-lg-2 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/g.jpeg">
+                        <div class="content">
+                            <h4>Car App</h4>
+                            <p> Lorem ipsum is a dummy text an a lot.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c row">
+                <div class="c8 img-hover-zoom col-lg-3 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/i.jpg">
+                        <div class="content">
+                            <h4>Rebuild it!</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="c9 img-hover-zoom col-lg-3 col-md-6">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/j.jpeg">
+                        <div class="content">
+                            <h4>Driving rule</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="c7 img-hover-zoom col-lg-6 col-md-12">
+                    <div class="overlayb">
+                        <img class="blogimg" src="~/images/h.jpeg">
+                        <div class="content">
+                            <h4>Driving long journey? Yes!</h4>
+                            <p>
+                                Lorem ipsum is a dummy text an a lot more
+                                but not really, only used in stuff like this. Lorem ipsum is a dummy text an a lot more
+                                but not really, only used.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="subsec">
+        <div class="overlay">
+            <!-- Call to action -->
+            <ul class="subscribe list-unstyled list-inline text-center py-2">
+                <li class="subheader">
+                    <h3 class="mb-1">SUBSCRIBE TO OUR NEWSLETTER</h3>
+                </li>
+                <li class="subform">
+                    <form class="form-inline mb-1">
+                        <input class="" type="email" placeholder="Email">
+                        <button class="btn btn-sub" type="submit">SUBSCRIBE</button>
+                    </form>
+                </li>
+            </ul>
+            <!-- Call to action -->
+        </div>
+    </section>
+
+</body>

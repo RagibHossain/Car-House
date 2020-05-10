@@ -1,0 +1,50 @@
+﻿@model Car_House.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    var userExists = (bool)ViewData["user"];
+}
+
+<h1>Login</h1>
+<a asp-controller="Home" asp-action="service">Visit Our Page</a>
+
+<hr />
+@if (!userExists)
+{
+    <span class="text-danger">Email or password Incorrect</span>
+}
+@if (ViewBag.NewPass)
+{
+    <span class="text-danger">Log in again with the new password</span>
+}
+<div class="row m-auto">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <input asp-for="UserID" class="form-control" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    Don't have an account ?
+    <a asp-action="Registration">Sign Up</a>
+    <br /><br />
+    <a asp-action="ForgetPassword">I forgot my password . </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

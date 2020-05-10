@@ -1,0 +1,70 @@
+﻿@model Car_House.Models.ViewModels.RegistrationViewModel
+
+@{
+    ViewData["Title"] = "Registration";
+    var emailExists = (bool)ViewData["Exists"];
+}
+
+<h1>Welcome</h1>
+
+<h4>Register an account to control the Admin panel</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registration">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <input asp-for="UserID" class="form-control" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+                @if (emailExists)
+                {
+                    <span  class="text-danger">An account already exists with this same email Address. Try a different one. </span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecurityQuestion1" class="control-label"></label>
+                <input asp-for="SecurityQuestion1" class="form-control" />
+                <span asp-validation-for="SecurityQuestion1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecurityQuestion2" class="control-label"></label>
+                <input asp-for="SecurityQuestion2" class="form-control" />
+                <span asp-validation-for="SecurityQuestion2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

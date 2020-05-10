@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Suv";
+    Layout = "~/Views/Shared/_CarHouseLayout.cshtml";
+}
+
+
+@model Car_House.Models.ViewModels.CarHouseViewModel
+
+    <head>
+        <link rel="stylesheet" href="~/css/products.css" type="text/css">
+        <link rel="stylesheet" href="~/css/suv.css" type="text/css">
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+    
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </head>
+
+<body>
+    <section class="video">
+        <iframe width="1700" height="700" src="https://www.youtube.com/embed/b6DuphqJk9g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section class="brandsec">
+        <div class="">
+            <img src="~/images/a.png">
+        </div>
+    </section>
+
+    <section class="products container">
+        <div class="">
+
+            <div class="row r1 wow bounceInUp">
+                @foreach (var item in Model.Cars)
+                {
+                    <div class="col-md-4">
+                        <div class="product">
+                            <div class="poverlay">
+                                <img src="~/images/@item.DisplayImage" class="image-responsive">
+                                <a asp-controller="Product" asp-action="Product" asp-route-CarID="@item.CarID" class="btn btn-custom btn-project">VIEW MORE</a>
+                            </div>
+                            <ul>
+                                <li class="left">@item.Model</li>
+                                <li class="right">@item.Price</li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+   
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>

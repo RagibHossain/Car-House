@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "product";
+    Layout = "~/Views/Shared/_CarHouseLayout.cshtml";
+    var i = 0;
+    var j = 0;
+}
+@model Car_House.Models.ViewModels.ProductViewModel
+
+    <head>
+        <link rel="stylesheet" href="~/css/product.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/animate.css">
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+    </head>
+    <body style="background-color: #212529;">
+
+        <section class="product">
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-md-6 p">
+                        <div id="carouselExampleIndicators" class="carousel carousel-fade" data-ride="carousel">
+                            <ol class="carousel-indicators">
+
+                                @foreach (var item in Model.Images)
+                                {
+                                    var active = i == 0 ? "active" : "";
+                                    <li>
+                                       
+                                        <img class="pimg @active" src="~/images/@item.ImageLocation" data-target="#carouselExampleIndicators" data-slide-to="@i">
+                                        @{
+                                            i++;
+                                        }
+                                    </li>
+
+                                }
+                            </ol>
+                            <div class="carousel-inner">
+                                @foreach (var item in Model.Images)
+                                {
+                                    var active = j == 0 ? "active" : "";
+
+                                    <div class="carousel-item @active">
+                                        <img src="~/images/@item.ImageLocation" class="d-block w-100" alt="...">
+                                    </div>
+
+                                    j++;
+
+                                }
+
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--SLIDER WILL GO HERE-->
+
+                    <div class="col-md-6 details">
+                        <h1>@Model.BrandName-@Model.Car.Model</h1>
+                        <div class="container">
+                            <p> @Model.Car.Description</p>
+                        </div>
+
+                        <div class="row rr">
+                            <div class="col-sm-4 wow animated zoomIn rr1">
+                                <img src="~/images/engine1.png">
+                                <p>@Model.Car.EngineSize</p>
+                            </div>
+
+                            <div class="col-sm-4 wow animated zoomIn rr1">
+                                <img src="~/images/taka1.png">
+                                <p>@Model.Car.Price</p>
+                            </div>
+
+                            <div class="col-sm-4 wow animated zoomIn rr1">
+                                <img src="~/images/mileage1.png">
+                                <p>@Model.Car.Mileage</p>
+                            </div>
+                            <div class="col-sm-4 wow animated zoomIn rr1">
+                                <img src="~/images/mileage1.png">
+                                <p>@Model.Car.Category</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--SPECIFICATIONS WILL GO HERE-->
+                </div>
+            </div>
+        </section>
+
+
+        <section class="details2">
+        </section>
+
+        <script src="~/js/wow.min..js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
+    </body>

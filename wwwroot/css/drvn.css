@@ -1,0 +1,97 @@
+.carousel-inner img{
+	width:100%;
+    position: relative;
+}
+.pimg{
+	width:80px;
+}
+.p{
+    background-color: black;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+    max-height: 89vh;
+}
+.details{
+	width: 100%;
+    height: 100%;
+    color: darkgrey;
+    margin: 0%;
+    padding: 0%;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.details p{
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+.carousel-indicators{
+	background-color:black;
+    margin-bottom: -10%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-indicators li {
+    box-sizing: content-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 80px;
+    height: 60px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-indent: 0px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .3;
+    transition: opacity .6s ease;
+}
+.carousel-item {
+	padding-top:0px;
+}
+.pname{
+    color: white;
+    letter-spacing: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-top: 15px;
+}
+
+.carousel-control-prev{
+    max-height: 70vh;
+    color: darkred;
+}
+
+.carousel-control-next{
+    max-height: 70vh;
+    padding: 0px;
+    color: darkred;
+}
+
+.rr{
+    width:100%;
+}
+
+.rr1{
+    min-height: 200px;
+    width:90%;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.rr1 iframe{
+    height:100px;
+    width:100px;
+    overflow: hidden;
+    align-content: center;
+}
+
+.footersec{
+	background-color:black;
+	color:white;
+    margin-top: 20px;
+}

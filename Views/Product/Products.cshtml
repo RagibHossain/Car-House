@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewData["Title"] = "products";
+    Layout = "~/Views/Shared/_CarHouseLayout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "All Products";
+}
+@model Car_House.Models.ViewModels.CarHouseViewModel
+
+    <head>
+        <link rel="stylesheet" href="~/css/products.css" media="screen">
+
+     
+    </head>
+
+<body>
+    <section class="minivan">
+        <div class="type-minivan">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="details pdetails">
+                        <h2>OUR MINIVANS</h2>
+                        <p>
+                            Have you really seen this sleek minivan?
+                            Check out our not so mini minivans available just one click away!
+                        </p>
+                        <button class="btnproduct pbutton"><a style="color: black" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="objects container">
+            <div class="row prd">
+                @foreach (var item in Model.Cars)
+                {
+                    if (item.Category == Category.Minivan)
+                    {
+                        <div class="col-md-3">
+                            <div class="product">
+                                <div class="poverlay">
+                                    <img src="~/images/@item.DisplayImage" class="image-responsive">
+                                    <a asp-controller="Product" asp-action="Product" asp-route-CarID="@item.CarID" class="btn btn-custom btn-project">VIEW MORE</a>
+                                </div>
+                                <ul>
+                                    <li class="left">MINIVAN</li>
+                                    <li class="right">$$$$$</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    }
+
+
+                }
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="suv">
+        <div class="type-suv">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="details pdetails">
+                        <h2>OUR SUV COLLECTION</h2>
+                        <p>
+                            Have you really seen this sleek minivan?
+                            Check out our not so mini minivans available just one click away!
+                        </p>
+                        <button class="btnproduct pbutton"><a style="color: black" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="objects container">
+            <div class="row prd">
+                @foreach (var item in Model.Cars)
+                {
+                    if (item.Category == Category.Suv)
+                    {
+                        <div class="col-md-3">
+                            <div class="product">
+                                <div class="poverlay">
+                                    <img src="~/images/@item.DisplayImage" class="image-responsive">
+                                    <a hasp-controller="Product" asp-action="Product" asp-route-CarID="@item.CarID" class="btn btn-custom btn-project">VIEW MORE</a>
+                                </div>
+                                <ul>
+                                    <li class="left">SUV</li>
+                                    <li class="right">$$$$$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="sedan">
+        <div class="type-sedan">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="details pdetails">
+                        <h2>OUR SEDAN COLLECTION</h2>
+                        <p>
+                            Have you really seen this sleek minivan?
+                            Check out our not so mini minivans available just one click away!
+                        </p>
+                        <button class="btnproduct pbutton"><a style="color: black" asp-controller="Home" asp-action="suv">SEE MORE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="objects container">
+            <div class="row prd">
+                @foreach (var item in Model.Cars)
+                {
+                    if (item.Category == Category.Sedan)
+                    {
+                        <div class="col-md-3">
+                            <div class="product">
+                                <div class="poverlay">
+                                    <img src="~/images/@item.DisplayImage" class="image-responsive">
+                                    <a asp-controller="Product" asp-action="Product" asp-route-CarID="@item.CarID" class="btn btn-custom btn-project">VIEW MORE</a>
+                                </div>
+                                <ul>
+                                    <li class="left">SEDAN</li>
+                                    <li class="right">$$$$$</li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="sports">
+        <div class="type-sports">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="details pdetails">
+                        <h2>SPORTS CARS</h2>
+                        <p>
+                            Have you really seen this sleek minivan?
+                            Check out our not so mini minivans available just one click away!
+                        </p>
+                        <button class="btnproduct pbutton"><a style="color: black" asp-controller="Home" asp-action="suv"> SEE MORE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="objects container">
+            <div class="row prd">
+                @foreach (var item in Model.Cars)
+                {
+                    if (item.Category == Category.Sport)
+                    {
+                        <div class="col-md-3">
+                            <div class="product">
+                                <div class="poverlay">
+                                    <img src="~/images/@item.DisplayImage" class="image-responsive">
+                                    <a asp-controller="Product" asp-action="Product" asp-route-CarID="@item.CarID" class="btn btn-custom btn-project">VIEW MORE</a>
+                                </div>
+                                <ul>
+                                    <li class="left">SPORTS CAR</li>
+                                    <li class="right">$$$$$</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>

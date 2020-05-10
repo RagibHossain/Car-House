@@ -1,0 +1,86 @@
+﻿@model Car_House.Models.ViewModels.CarListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-sub btn-outline" asp-action="Create">Add a new car</a>
+  
+   <button class="btn btn-sub btn-outline ml-5 tootltip-test" title="Upload Meme" data-toggle="modal" data-target="#myModal" id="myBtn">Add a car with existing car spec</button>
+    
+</p>
+<h1 class=" text-center">Cars</h1>
+<table class="table">
+    <thead>
+        
+
+         
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cars)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+               
+                <td>
+
+                    <img style="width:100px; height:60px;" src="~/images/@item.DisplayImage" alt="No Image" />
+
+
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CarID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CarID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CarID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+       
+<div class="modal-header">
+    <h4 class="modal-title">Select Which Car you want to load ?</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+<div class="modal-body">
+    <form class="" asp-action="Index">
+        <div class="form-group">
+            <label class="mr-1">Select Car</label>
+            <select asp-for="SelectedCarID" asp-items="ViewBag.Cars"></select>
+        </div>
+
+        <div> <input class="btn btn-dark float-right" type="submit" value="Done" name="upload"></div>
+    </form>
+</div>
+
+
+        </div>
+    </div>
+</div>

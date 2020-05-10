@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Car_House</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200428105331_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200428105331_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200429153651_PasswordHashAndSalt.cs" />
+    <Compile Remove="Migrations\20200429153651_PasswordHashAndSalt.Designer.cs" />
+    <Compile Remove="Migrations\20200429154000_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200429154000_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200501202812_PPColumn.cs" />
+    <Compile Remove="Migrations\20200501202812_PPColumn.Designer.cs" />
+    <Compile Remove="Migrations\20200501203111_PPDefaultVal.cs" />
+    <Compile Remove="Migrations\20200501203111_PPDefaultVal.Designer.cs" />
+    <Compile Remove="Migrations\20200501203348_PPDefaultValue.cs" />
+    <Compile Remove="Migrations\20200501203348_PPDefaultValue.Designer.cs" />
+    <Compile Remove="Migrations\20200504121207_NewTableCreate.cs" />
+    <Compile Remove="Migrations\20200504121207_NewTableCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200504121406_NewTableCreate.cs" />
+    <Compile Remove="Migrations\20200504121406_NewTableCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200504204239_CategoryInCar.cs" />
+    <Compile Remove="Migrations\20200504204239_CategoryInCar.Designer.cs" />
+    <Compile Remove="Migrations\20200505211705_CarPKTypeChange.cs" />
+    <Compile Remove="Migrations\20200505211705_CarPKTypeChange.Designer.cs" />
+    <Compile Remove="Migrations\20200505212752_CarPKChange.cs" />
+    <Compile Remove="Migrations\20200505212752_CarPKChange.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,106 @@
+.body{
+    background-color: #212529;
+}
+.type-minivan{
+	height:100vh;
+	overflow:hidden;
+	text-align:center;
+	background-image:url(../images/products/minivan.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.type-sedan{
+	height:100vh;
+	overflow:hidden;
+	text-align:center;
+	background-image:url(../images/products/sedan.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.type-suv{
+	height:100vh;
+	overflow:hidden;
+	text-align:center;
+	background-image:url(../images/products/suv.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.type-sports{
+	height:100vh;
+	overflow:hidden;
+	text-align:center;
+	background-image:url(../images/products/sports.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.prd{
+	margin-top:30px;
+}
+.products{
+	height:60vh;
+}
+.pdetails {
+    color: rgb(0, 0, 0);
+    margin-top: 5%;
+}
+.pdetails h2 {
+    color: rgb(0, 0, 0);
+}
+.pbutton{
+    color: rgb(0, 0, 0);
+    border: solid rgb(0, 0, 0) 1px;
+	margin-top:0px;
+}
+.product{
+	background-color:#dcdcdc;
+	overflow:hidden;
+	margin-bottom:30px;
+	text-transform:uppercase;
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+.product ul{
+	list-style:none;
+    padding: 15px 0;
+}
+.left{
+	float:left;
+	font-size: 16px;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-bottom: 18px;
+}
+
+.right{
+	float:right;
+	color:#b2a69d;
+    margin-right: 3px;
+}
+.poverlay img{
+	height:160px;
+	width:100%;
+}
+.poverlay a{
+	position:absolute;
+	top: 20%;
+    left: 10%;
+	transform:translate(50%,50%);
+	z-index:-1;
+}
+.product:hover{
+	box-shadow: 5px 5px 10px grey;
+	transition:0.4s;
+}
+.product:hover a{
+	z-index:3;
+	background-color:#39c9da00;
+	color:white;
+	border:1px solid white;
+	transition:0.4s;
+}
+.product:hover .poverlay img{
+    filter: brightness(0.6);
+	transition:0.4s;
+}

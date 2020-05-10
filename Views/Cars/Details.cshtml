@@ -1,0 +1,109 @@
+﻿@model Car_House.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Transmission)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Transmission)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Condition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Condition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FuelType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FuelType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GearType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GearType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BodyType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodyType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EngineSize)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EngineSize)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoOfSeats)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoOfSeats)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mileage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mileage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CarID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div>
+    @foreach (var image in Model.Images)
+    {
+        <div class="card m-auto" style="width :400px; height:400px;">
+            <div class="card-body">
+                <img src="~/images/@image.ImageLocation" class="" style="width:100%;" alt="No Image" />
+            </div>
+
+        </div>
+    }
+</div>
