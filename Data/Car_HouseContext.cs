@@ -35,6 +35,9 @@ namespace Car_House.Data
             modelBuilder.Entity<Car>()
               .Property(b => b.DisplayImage)
               .HasDefaultValue("red.jpg");
+            modelBuilder.Entity<Car>()
+            .Property(b => b.Color)
+            .HasDefaultValue("none");
         }
     
 

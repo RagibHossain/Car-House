@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Car_House.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,18 +44,20 @@ namespace Car_House.Migrations
                 {
                     CarID = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    Model = table.Column<string>(nullable: true),
+                    Model = table.Column<string>(nullable: false),
                     BrandID = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true, defaultValue: "none"),
                     Transmission = table.Column<int>(nullable: false),
                     Condition = table.Column<int>(nullable: false),
                     FuelType = table.Column<int>(nullable: false),
                     GearType = table.Column<int>(nullable: false),
-                    BodyType = table.Column<string>(nullable: true),
+                    BodyType = table.Column<string>(nullable: false),
                     EngineSize = table.Column<string>(nullable: true),
                     NoOfSeats = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Mileage = table.Column<decimal>(nullable: false),
-                    Category = table.Column<int>(nullable: false)
+                    Category = table.Column<int>(nullable: false),
+                    DisplayImage = table.Column<string>(nullable: true, defaultValue: "red.jpg")
                 },
                 constraints: table =>
                 {
@@ -85,7 +87,7 @@ namespace Car_House.Migrations
                         column: x => x.CarID,
                         principalTable: "Cars",
                         principalColumn: "CarID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

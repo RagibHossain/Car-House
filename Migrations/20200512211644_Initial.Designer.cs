@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Car_House.Migrations
 {
     [DbContext(typeof(Car_HouseContext))]
-    [Migration("20200506115022_CarDisplayImage")]
-    partial class CarDisplayImage
+    [Migration("20200512211644_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,6 +43,7 @@ namespace Car_House.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BodyType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BrandID")
@@ -50,6 +51,11 @@ namespace Car_House.Migrations
 
                     b.Property<int>("Category")
                         .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("none");
 
                     b.Property<int>("Condition")
                         .HasColumnType("int");
@@ -75,6 +81,7 @@ namespace Car_House.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Model")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NoOfSeats")

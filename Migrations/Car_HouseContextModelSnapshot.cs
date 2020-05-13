@@ -41,6 +41,7 @@ namespace Car_House.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BodyType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BrandID")
@@ -48,6 +49,11 @@ namespace Car_House.Migrations
 
                     b.Property<int>("Category")
                         .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("none");
 
                     b.Property<int>("Condition")
                         .HasColumnType("int");
@@ -73,6 +79,7 @@ namespace Car_House.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Model")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NoOfSeats")

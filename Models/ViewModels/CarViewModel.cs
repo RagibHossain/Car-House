@@ -23,6 +23,9 @@ namespace Car_House.Models.ViewModels
         public Brand Brand { get; set; }
         
         [Required]
+        public string Color { get; set; }
+
+        [Required]
         public Transmission Transmission { get; set; }
         [Required]
         public Condition Condition { get; set; }

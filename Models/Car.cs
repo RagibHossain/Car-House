@@ -78,6 +78,9 @@ namespace Car_House.Models
         public int BrandID { get; set; }
 
         public Brand Brand { get; set; }
+
+        
+        public string Color { get; set; }
         [Required]
         public Transmission Transmission { get; set; }
         [Required]
@@ -99,7 +102,6 @@ namespace Car_House.Models
 
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-
 
         public decimal Mileage { get; set; }
         public Category Category { get; set; }

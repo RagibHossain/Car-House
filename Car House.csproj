@@ -28,6 +28,22 @@
     <Compile Remove="Migrations\20200505211705_CarPKTypeChange.Designer.cs" />
     <Compile Remove="Migrations\20200505212752_CarPKChange.cs" />
     <Compile Remove="Migrations\20200505212752_CarPKChange.Designer.cs" />
+    <Compile Remove="Migrations\20200505213144_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200505213144_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200506104103_OnDeleteCarBehaviorChange.cs" />
+    <Compile Remove="Migrations\20200506104103_OnDeleteCarBehaviorChange.Designer.cs" />
+    <Compile Remove="Migrations\20200506115022_CarDisplayImage.cs" />
+    <Compile Remove="Migrations\20200506115022_CarDisplayImage.Designer.cs" />
+    <Compile Remove="Migrations\20200511120218_CarColor.cs" />
+    <Compile Remove="Migrations\20200511120218_CarColor.Designer.cs" />
+    <Compile Remove="Migrations\20200512104801_MileageTypeChange.cs" />
+    <Compile Remove="Migrations\20200512104801_MileageTypeChange.Designer.cs" />
+    <Compile Remove="Migrations\20200512115556_MileageTypeDouble.cs" />
+    <Compile Remove="Migrations\20200512115556_MileageTypeDouble.Designer.cs" />
+    <Compile Remove="Migrations\20200512122734_MileageTypeChange.cs" />
+    <Compile Remove="Migrations\20200512122734_MileageTypeChange.Designer.cs" />
+    <Compile Remove="Migrations\20200512211210_MileageDecimal.cs" />
+    <Compile Remove="Migrations\20200512211210_MileageDecimal.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

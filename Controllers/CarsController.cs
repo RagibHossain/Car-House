@@ -10,6 +10,7 @@ using Car_House.Models;
 using Car_House.Models.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 
 namespace Car_House.Controllers
 {
@@ -57,6 +58,7 @@ namespace Car_House.Controllers
                 Model = car.Model,
                 Category = car.Category,
                 BrandID = car.BrandID,
+                Color = car.Color,
                 Transmission = car.Transmission,
                 Condition = car.Condition,
                 FuelType = car.FuelType,
@@ -74,7 +76,7 @@ namespace Car_House.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult AddExistingCar([Bind("CarID,Description,Model,BrandID,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images")]CarViewModel car)
+        public IActionResult AddExistingCar([Bind("CarID,Description,Model,BrandID,Color,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images")]CarViewModel car)
         {
             if(ModelState.IsValid)
             {
@@ -116,7 +118,7 @@ namespace Car_House.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CarID,Description,Model,BrandID,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images")] CarViewModel carvm)
+        public async Task<IActionResult> Create([Bind("CarID,Description,Model,BrandID,Color,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images")] CarViewModel carvm)
         {
             if (ModelState.IsValid)
             {
@@ -131,6 +133,7 @@ namespace Car_House.Controllers
         {
             Car car = new Car
             {
+
                 CarID = carvm.CarID,
                 Description = carvm.Description,
                 Model = carvm.Model,
@@ -143,7 +146,10 @@ namespace Car_House.Controllers
                 BodyType = carvm.BodyType,
                 EngineSize = carvm.EngineSize,
                 NoOfSeats = carvm.NoOfSeats,
-                Price = carvm.Price
+                Mileage = carvm.Mileage,
+                Price = carvm.Price,
+                Color = carvm.Color
+
             };
 
             // uploads all the image to image folder and returns a list of image location
@@ -228,6 +234,7 @@ namespace Car_House.Controllers
                 Model = car.Model,
                 Category = car.Category,
                 BrandID = car.BrandID,
+                Color = car.Color,
                 Transmission = car.Transmission,
                 Condition = car.Condition,
                 FuelType = car.FuelType,
@@ -235,6 +242,7 @@ namespace Car_House.Controllers
                 BodyType = car.BodyType,
                 EngineSize = car.EngineSize,
                 NoOfSeats = car.NoOfSeats,
+                Mileage = car.Mileage,
                 Price = car.Price,
                 DisplayImage = car.DisplayImage
 
@@ -248,7 +256,7 @@ namespace Car_House.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CarID,Description,Model,BrandID,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images,DisplayImage")] CarViewModel car)
+        public async Task<IActionResult> Edit(string id, [Bind("CarID,Description,Model,Color,BrandID,Transmission,Condition,FuelType,GearType,BodyType,EngineSize,NoOfSeats,Price,Mileage,Category,Images,DisplayImage")] CarViewModel car)
         {
             if (id != car.CarID)
             {
@@ -275,8 +283,10 @@ namespace Car_House.Controllers
                         BodyType = car.BodyType,
                         EngineSize = car.EngineSize,
                         NoOfSeats = car.NoOfSeats,
+                        Mileage = car.Mileage,
                         Price = car.Price,
-                        DisplayImage = car.DisplayImage
+                        DisplayImage = car.DisplayImage,
+                        Color = car.Color
 
                     };
 
@@ -353,6 +363,78 @@ namespace Car_House.Controllers
         private bool CarExists(string id)
         {
             return _context.Cars.Any(e => e.CarID == id);
+        }
+
+
+        public IActionResult DeleteImage(int imageID)
+        {
+
+            ImageViewModel imgvm = GetImageViewModel(imageID);
+         
+            return View(imgvm);
+        }
+        [HttpPost,ActionName("DeleteImage")]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult DeleteImageConfirmed(int ImageID)
+        {
+            Image image = _context.Images.FirstOrDefault(i => i.ImageID == ImageID);
+            
+            if(image != null)
+            {
+                _context.Images.Remove(image);
+                _context.SaveChanges();
+                return RedirectToAction("Details",new RouteValueDictionary(
+                  new { action = "Details", Id = image.CarID }));
+            }
+
+            return View();
+        }
+
+        public IActionResult SetDisplayImage(int imageID)
+        {
+            ImageViewModel imgvm = GetImageViewModel(imageID);
+
+            return View(imgvm);
+        }
+        [HttpPost,ActionName("SetDisplayImage")]
+        [ValidateAntiForgeryToken]
+        public IActionResult SetDisplayImageConfirmed(int imageID,string carID)
+        {
+            Image image = _context.Images.FirstOrDefault(i => i.ImageID == imageID);
+            Car car = _context.Cars.FirstOrDefault(c => c.CarID == carID);
+            car.DisplayImage = image.ImageLocation;
+
+            try
+            {
+                _context.Cars.Update(car);
+                _context.SaveChanges();
+                return RedirectToAction("Details", new RouteValueDictionary(
+                 new { action = "Details", Id = image.CarID }));
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+
+            
+        }
+
+        private ImageViewModel GetImageViewModel(int imageID)
+        {
+            Image image = _context.Images.Include(x => x.Car).ThenInclude(i => i.Brand).FirstOrDefault(z => z.ImageID == imageID);
+
+            ImageViewModel imgvm = new ImageViewModel
+            {
+                Image = image,
+                CarBrand = image.Car.Brand.BrandName,
+                CarModel = image.Car.Model,
+                ImageID = imageID,
+                CarID = image.CarID
+            };
+
+            return imgvm;
         }
     }
 }
