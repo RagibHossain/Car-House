@@ -2,70 +2,209 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    font-size: 14px;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin: 0px 25px 0px 25px;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+        color: #ffffff;
+        font-weight: bolder;
+        overflow-wrap: break-word;
+    }
+
+.dropdown-toggle {
+    white-space: unset;
+}
+
+
+@media only screen and (max-width: 1400px) and (min-width: 1200px) {
+    nav .dropdown-menu.show {
+        display: block;
+        width: 30vw;
+        margin-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 1000px) {
+    nav .dropdown-menu.show {
+        display: block;
+        margin-left: 200px;
+        width: 60vw;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 700px) {
+    nav .dropdown-menu.show {
+        text-align: center;
+        width: 70vw;
+        margin-left: 75px;
+    }
+}
+
+/*.border-top {
+    border-top: 1px solid #e5e5e5;
+}*/
+.border-top {
+    border-top: none !important;
+}
+
+.card {
+    background-color: #404040;
+    border: none;
+}
+
+.card-body{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.profile-dropdown {
+    margin-left:auto;
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Lato', sans-serif;
+    background-color: #404040;
 }
+
+.profile dt {
+    color: white;
+}
+
+.profile dd {
+    color: white;
+}
+
+.profile dd a {
+    color: mediumaquamarine;	
+}
+
+.settbtn {
+    background-color: black;
+    color: #C0C0C0;
+}
+
+.settbtn:hover {
+    color: white;
+}
+
+.linkbtn {
+    padding: 0;
+    color: mediumaquamarine;
+}
+
+.linkbtn:hover {
+    color: lightseagreen;
+}
+
+.profile dd a:hover {
+    color: lightseagreen;
+}
+
+table a {
+    color: mediumaquamarine;
+}
+
+table a:hover {
+    color: lightseagreen;
+}
+
+.brand-actions {
+    width: 40vw;
+}
+
+.exist-btn {
+    margin-left: auto;
+}
+
+.cartable {
+    overflow-x: auto;
+}
+
+.carcss a {
+    color: mediumaquamarine;
+}
+
+.carcss a:hover {
+    color: lightseagreen;
+}
+
+h1 {
+    color: white;
+}
+
+.admin-footer {
+    background-color: black;
+    color: white;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }

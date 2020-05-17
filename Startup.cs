@@ -28,6 +28,7 @@ namespace Car_House
         {
             
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
             services.AddSession();
             services.AddDbContext<Car_HouseContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Car_HouseContext")));

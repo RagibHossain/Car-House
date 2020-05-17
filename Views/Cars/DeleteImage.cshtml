@@ -1,17 +1,16 @@
 ﻿@model Car_House.Models.ViewModels.ImageViewModel
 
 @{
-    ViewData["Title"] = "DeleteImage";
+    ViewData["Title"] = "Delete Image";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>DeleteImage</h1>
+<h1>Delete Image</h1>
 
-<h3>Are you sure you want to delete this Image ?</h3>
-<div>
-    <h4>Image</h4>
+<h3 class="text-white">Are you sure you want to delete this Image ?</h3>
+<div class="mb-5">
     <hr />
-    <dl class="row">
+    <dl class="row text-white">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CarBrand)
         </dt>
@@ -35,12 +34,13 @@
         </div>
     </div>
 
+    <br />
 
-    <form asp-action="DeleteImage">
+    <form class="carcss" asp-action="DeleteImage">
 
         <input type="hidden" asp-for="ImageID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Details" asp-route-id="Image.CarID">Back to Details</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="float-right" asp-action="Details" asp-route-id="@Model.CarID">Back to Details</a>
 
     </form>
 </div>

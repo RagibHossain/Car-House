@@ -1,18 +1,17 @@
 ﻿@model Car_House.Models.ViewModels.ImageViewModel
 @{
-    ViewData["Title"] = "SetDisplayImage";
+    ViewData["Title"] = "Set Display Image";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>SetDisplayPicture</h1>
+<h1>@ViewData["Title"]</h1>
 
 
-<h3>Are you sure you want to set this Image as Display Picture ?</h3>
+<h3 class="text-white">Are you sure you want to set this Image as Display Picture ?</h3>
 
-<div>
-    <h4>Image</h4>
+<div class="mb-5">
     <hr />
-    <dl class="row">
+    <dl class="row text-white">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CarBrand)
         </dt>
@@ -35,14 +34,14 @@
             </div>
         </div>
     </div>
+    <br />
 
-
-    <form asp-action="SetDisplayImage">
+    <form class="carcss" asp-action="SetDisplayImage">
 
         <input type="hidden" asp-for="ImageID" />
         <input type="hidden" asp-for="CarID" />
-        <input  type="submit" value="Confirm" class="btn btn-outline-info mt-1" /> 
-        <a class="float-right" asp-action="Details" asp-route-id="CarID">Back to Details</a>
+        <input  type="submit" value="Confirm" class="btn settbtn" /> 
+        <a class="float-right" asp-action="Details" asp-route-id="@Model.CarID">Back to Details</a>
 
     </form>
 </div>

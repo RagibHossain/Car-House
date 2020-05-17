@@ -3,25 +3,26 @@
 @{
     ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    var brands = (List<Brand>)ViewData["Brands"];
 }
 
-<h1>Profile</h1>
+<div class="row px-3">
+    <h1>Profile</h1>
 
-<div class="dropdown show float-right mt-1">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Settings
-    </a>
+    <div class="dropdown profile-dropdown show mt-2">
+        <a class="btn settbtn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Settings
+        </a>
 
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" asp-action="Update" asp-route-UserID="@Model.UserID">Update Profile</a>
-        <a class="dropdown-item" asp-action="ChangePassword">Change Password</a>
-        <a class="dropdown-item" asp-action="Logout">Logout</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" asp-action="Update" asp-route-UserID="@Model.UserID">Update Profile</a>
+            <a class="dropdown-item" asp-action="ChangePassword">Change Password</a>
+            <a class="dropdown-item" asp-action="Logout">Logout</a>
+        </div>
     </div>
 </div>
 
 
-<div>
+<div class="profile">
 
     <hr />
     <dl class="row">
@@ -40,19 +41,14 @@
 
 
     </dl>
-    <div class="card m-auto" style="width :400px; height:400px;">
+    <div class="card m-auto col-md-6 col-lg-4 col-sm-12">
         <div class="card-body">
             <img src="~/images/@Model.ProfilePicture" class="" style="width:100%;" alt="No Image" />
         </div>
-
     </div>
-    <div>
 
-
-
-    </div>
 </div>
-<div>
-    <a asp-action="Update" asp-route-id="@Model.UserID">Update</a> |
+<!--<div>
+    <a asp-action="Update" asp-route-id="">Update</a> |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>-->

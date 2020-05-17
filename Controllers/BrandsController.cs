@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Car_House.Data;
 using Car_House.Models;
+using Microsoft.AspNetCore.Http;
+using Car_House.Models.ViewModels;
 
 namespace Car_House.Views.Brands
 {
@@ -22,7 +24,17 @@ namespace Car_House.Views.Brands
         // GET: Brands
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Brands.ToListAsync());
+            if(HttpContext.Session.GetString("Email") == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            var model = new BrandViewModel
+            {
+                Brands = await _context.Brands.ToListAsync()
+            };
+
+            return View(model);
         }
 
         // GET: Brands/Details/5
@@ -42,53 +54,30 @@ namespace Car_House.Views.Brands
 
             return View(brand);
         }
-
-        // GET: Brands/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Brands/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrandID,BrandName")] Brand brand)
+        public async Task<IActionResult> Create(BrandViewModel model)
         {
             if (ModelState.IsValid)
             {
+                var brand = new Brand
+                {
+                    BrandName = model.BrandName
+                };
                 _context.Add(brand);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(brand);
+            return View(nameof(Index));
         }
 
-        // GET: Brands/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var brand = await _context.Brands.FindAsync(id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-            return View(brand);
-        }
-
-        // POST: Brands/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BrandID,BrandName")] Brand brand)
+        public async Task<IActionResult> Edit(int bID, BrandViewModel model)
         {
-            if (id != brand.BrandID)
+            var brand = await _context.Brands.FindAsync(bID);
+            if(brand == null)
             {
                 return NotFound();
             }
@@ -97,6 +86,7 @@ namespace Car_House.Views.Brands
             {
                 try
                 {
+                    brand.BrandName = model.BrandName;
                     _context.Update(brand);
                     await _context.SaveChangesAsync();
                 }
@@ -116,30 +106,11 @@ namespace Car_House.Views.Brands
             return View(brand);
         }
 
-        // GET: Brands/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var brand = await _context.Brands
-                .FirstOrDefaultAsync(m => m.BrandID == id);
-            if (brand == null)
-            {
-                return NotFound();
-            }
-
-            return View(brand);
-        }
-
-        // POST: Brands/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int bID)
         {
-            var brand = await _context.Brands.FindAsync(id);
+            var brand = await _context.Brands.FindAsync(bID);
             _context.Brands.Remove(brand);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

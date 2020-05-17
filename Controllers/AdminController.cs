@@ -121,18 +121,6 @@ namespace Car_House.Controllers
             return RedirectToAction("Login", "Users");
         }
 
-        // GET: Admin/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Admin/Create
-    
-
-        // POST: Admin/Create
-      
-
         // GET: Admin/Edit/5
         public ActionResult Update()
         {

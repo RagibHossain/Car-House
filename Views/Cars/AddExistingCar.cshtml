@@ -1,112 +1,122 @@
 ﻿@model Car_House.Models.ViewModels.CarViewModel
 
 @{
-    ViewData["Title"] = "AddExistingCar";
+    ViewData["Title"] = "Add Existing Car";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Add a car</h1>
-
-<h4>Car</h4>
+<h1>@ViewData["Title"]</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="AddExistingCar" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CarID" class="control-label"></label>
-                <input asp-for="CarID" class="form-control" />
-                <span asp-validation-for="CarID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<Category>()"></select>
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>
+            <div class="row text-white">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="CarID" class="control-label"></label>
+                        <input asp-for="CarID" class="form-control" />
+                        <span asp-validation-for="CarID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="BrandID" class="control-label"></label>
-                <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
+                    <div class="form-group">
+                        <label asp-for="Category" class="control-label"></label>
+                        <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<Category>()"></select>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="Transmission" class="control-label"></label>
-                <select asp-for="Transmission" class="form-control" asp-items="Html.GetEnumSelectList<Transmission>()"></select>
-                <span asp-validation-for="Transmission" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Condition" class="control-label"></label>
-                <select asp-for="Condition" class="form-control" asp-items="Html.GetEnumSelectList<Condition>()"></select>
-                <span asp-validation-for="Condition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FuelType" class="control-label"></label>
-                <select asp-for="FuelType" class="form-control" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
-                <span asp-validation-for="FuelType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GearType" class="control-label"></label>
-                <select asp-for="GearType" class="form-control" asp-items="Html.GetEnumSelectList<GearType>()"></select>
-                <span asp-validation-for="GearType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BodyType" class="control-label"></label>
-                <input asp-for="BodyType" class="form-control" />
-                <span asp-validation-for="BodyType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EngineSize" class="control-label"></label>
-                <input asp-for="EngineSize" class="form-control" />
-                <span asp-validation-for="EngineSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NoOfSeats" class="control-label"></label>
-                <input asp-for="NoOfSeats" class="form-control" />
-                <span asp-validation-for="NoOfSeats" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mileage" class="control-label"></label>
-                <input asp-for="Mileage" class="form-control" />
-                <span asp-validation-for="Mileage" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Images" class="control-label"></label>
-                <div class="custom-file">
-                    <input multiple asp-for="Images" class="form-control custom-file-input" id="customFile" />
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <div class="form-group">
+                        <label asp-for="BrandID" class="control-label"></label>
+                        <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
+                    </div>
                 </div>
-                <span asp-validation-for="Images" class="text-danger"></span>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="Model" class="control-label"></label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Color" class="control-label"></label>
+                        <input asp-for="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BodyType" class="control-label"></label>
+                        <input asp-for="BodyType" class="form-control" />
+                        <span asp-validation-for="BodyType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EngineSize" class="control-label"></label>
+                        <input asp-for="EngineSize" class="form-control" />
+                        <span asp-validation-for="EngineSize" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="FuelType" class="control-label"></label>
+                        <select asp-for="FuelType" class="form-control" asp-items="Html.GetEnumSelectList<FuelType>()"></select>
+                        <span asp-validation-for="FuelType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GearType" class="control-label"></label>
+                        <select asp-for="GearType" class="form-control" asp-items="Html.GetEnumSelectList<GearType>()"></select>
+                        <span asp-validation-for="GearType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Transmission" class="control-label"></label>
+                        <select asp-for="Transmission" class="form-control" asp-items="Html.GetEnumSelectList<Transmission>()"></select>
+                        <span asp-validation-for="Transmission" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Condition" class="control-label"></label>
+                        <select asp-for="Condition" class="form-control" asp-items="Html.GetEnumSelectList<Condition>()"></select>
+                        <span asp-validation-for="Condition" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="NoOfSeats" class="control-label"></label>
+                        <input asp-for="NoOfSeats" class="form-control" />
+                        <span asp-validation-for="NoOfSeats" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mileage" class="control-label"></label>
+                        <input asp-for="Mileage" class="form-control" />
+                        <span asp-validation-for="Mileage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Images" class="control-label"></label>
+                        <div class="custom-file">
+                            <input multiple asp-for="Images" class="form-control custom-file-input" id="customFile" />
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <span asp-validation-for="Images" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn settbtn" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
+<div class="carcss">
     <a asp-action="Index">Back to List</a>
 </div>
 

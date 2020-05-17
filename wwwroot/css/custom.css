@@ -6,13 +6,6 @@ html{
 	width:100vw;
 }
 
-
-
-
-
-
-
-
 .navbar input {
     max-width: 90px;
     background-color: black;
@@ -36,11 +29,17 @@ html{
     font-weight: 600;
     letter-spacing: 5px;
     margin: 0px 25px 0px 25px;
+    cursor: pointer;
+    overflow-wrap: break-word;
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
     color: #ffffff;
     font-weight: bolder;
+    overflow-wrap: break-word;
 }
+
+
+
 .bg-light {
     background-color: #000000!important;
 }
@@ -135,7 +134,7 @@ html{
 	height:120vh;
 	margin-top:0;
 	background:url(../images/bg.jpeg) no-repeat 50% 50%;
-	background-repeat:no repeat;
+	background-repeat: no-repeat;
 	background-size:cover;
     overflow: hidden;
 }
@@ -449,11 +448,12 @@ html{
 	color:white;
 }
 
-@media (min-width: 1360px)
-.navbar-expand-lg .navbar-collapse {
-    display: -ms-flexbox;
-    display: flex;
-    flex-basis: auto;
+@media (min-width: 1360px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: -ms-flexbox;
+        display: flex;
+        flex-basis: auto;
+    }
 }
 
 

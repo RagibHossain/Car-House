@@ -1,16 +1,47 @@
-﻿@model IEnumerable<Car_House.Models.Brand>
+﻿@model Car_House.Models.ViewModels.BrandViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Brand";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
-<p>
-    <a  class="btn btn-outline-info"  asp-action="Create">Add a new brand</a>
-</p>
-<table class="table">
+<button type="button" class="btn settbtn" data-toggle="modal" data-target="#exampleModal">
+    Add a new brand
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Brand:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="brandadd" asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="BrandName" class="control-label"></label>
+                        <input asp-for="BrandName" class="form-control" />
+                        <span asp-validation-for="BrandName" class="text-danger"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                <button type="submit" form="brandadd" class="btn settbtn">Add Brand</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table mt-5 table-hover table-striped table-dark">
     <thead>
         <tr>
             <th>
@@ -20,17 +51,88 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrandName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BrandID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BrandID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BrandID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Brands)
+        {
+            var modal = "#editmodal" + item.BrandID.ToString();
+            var del = "#deletemodal" + item.BrandID.ToString();
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td class="brand-actions">
+                    <button type="button" data-toggle="modal" data-target="@modal" class="btn btn-info">Edit</button> |
+                    <button type="button" data-toggle="modal" data-target="@del" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@foreach (var item in Model.Brands)
+{
+    var modal = "editmodal" + item.BrandID.ToString();
+    var del = "deletemodal" + item.BrandID.ToString();
+    <div class="modal fade" id="@modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Brand:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="brandedit + @item.BrandID" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="BrandName" class="control-label"></label>
+                            <input asp-for="BrandName" class="form-control" value="@item.BrandName" />
+                            <span asp-validation-for="BrandName" class="text-danger"></span>
+                            <input type="hidden" name="bID" value="@item.BrandID" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" form="brandedit + @item.BrandID" class="btn settbtn">Update Brand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="@del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Brand:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure you want to delete this?</h4>
+                    <br />
+                    <div class="text-center">
+                        <div class="d-block">
+                            <dl class="row">
+                                <dt class="col-3">
+                                    Brand Name:
+                                </dt>
+                                <dd class="col-4">
+                                    @item.BrandName
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <form id="delbrand + @item.BrandID" asp-action="Delete">
+                        <input type="hidden" value="@item.BrandID" name="bID" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" form="delbrand + @item.BrandID" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

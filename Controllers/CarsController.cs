@@ -123,6 +123,7 @@ namespace Car_House.Controllers
             if (ModelState.IsValid)
             {
                 UploadCarInformation(carvm);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BrandID"] = new SelectList(_context.Brands, "BrandID", "BrandName", carvm.BrandID);
@@ -180,7 +181,7 @@ namespace Car_House.Controllers
 
 
             _context.Cars.Add(car);
-            _context.SaveChanges();
+            
         }
 
         private List<string> UploadedFile(CarViewModel model)
@@ -330,31 +331,11 @@ namespace Car_House.Controllers
             return View(car);
         }
 
-        // GET: Cars/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var car = await _context.Cars
-                .Include(c => c.Brand)
-                .FirstOrDefaultAsync(m => m.CarID == id);
-            if (car == null)
-            {
-                return NotFound();
-            }
-
-            return View(car);
-        }
-
-        // POST: Cars/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> Delete(string cID)
         {
-            var car = await _context.Cars.FindAsync(id);
+            var car = await _context.Cars.FindAsync(cID);
             _context.Cars.Remove(car);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

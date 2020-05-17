@@ -4,108 +4,111 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-    <head>
+<head>
 
-        <link rel="stylesheet" href="~/css/products.css" type="text/css">
-        <link rel="stylesheet" href="~/css/suv.css" type="text/css">
- 
-    </head>
+    <link rel="stylesheet" href="~/css/products.css" type="text/css">
+    <link rel="stylesheet" href="~/css/suv.css" type="text/css">
 
-<h1>Details</h1>
+</head>
+
+<h1>Car Details</h1>
 
 <div>
-    <h4>Car</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Brand.BrandName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transmission)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transmission)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Condition)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Condition)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FuelType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FuelType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.GearType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.GearType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.BodyType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BodyType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EngineSize)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EngineSize)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NoOfSeats)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NoOfSeats)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Mileage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Mileage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.CarID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <dl class="row text-white">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Model)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Model)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Brand)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Brand.BrandName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Color)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Transmission)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Transmission)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Condition)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Condition)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.FuelType)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.FuelType)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <dl class="row text-white">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.GearType)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.GearType)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.BodyType)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.BodyType)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.EngineSize)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EngineSize)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.NoOfSeats)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.NoOfSeats)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Mileage)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Mileage)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
 
 <div class="row mt-5 r1 wow bounceInUp">
@@ -115,20 +118,16 @@
 
             <div class="card">
                 <div class="dropdown show float-lg-right mt-1">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        
+                    <a class="btn dropdown-toggle text-white float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" asp-action="DeleteImage" asp-route-imageID="@image.ImageID">Delete Image</a>
                         <a class="dropdown-item" asp-action="SetDisplayImage" asp-route-imageID="@image.ImageID">Set as Display Picture</a>
+                        <a class="dropdown-item" asp-action="DeleteImage" asp-route-imageID="@image.ImageID">Delete Image</a>
                     </div>
                 </div>
-                @if(Model.DisplayImage == image.ImageLocation)
-                {
-                    <p>DP</p>
-                }
-                <div class="card-body">
+                @{ var cardcolor = Model.DisplayImage == image.ImageLocation ? "lightseagreen" : "white"; }
+                <div class="card-body" style="background-color: @cardcolor">
                     <div class="poverlay">
                         <img src="~/images/@image.ImageLocation" class="" style="width:100%;" alt="No Image" />
                     </div>
@@ -138,9 +137,16 @@
     }
 </div>
 
+<br />
+
+<div class="carcss">
+    <a asp-action="Edit" asp-route-id="@Model.CarID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
 <!--
 <div class="row r1 wow bounceInUp">
-   
+
         <div class="col-md-4">
             <div class="product">
                 <div class="poverlay">
