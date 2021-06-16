@@ -33,6 +33,7 @@ namespace Car_House.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BrandID");
+                    //
 
                     b.ToTable("Brands");
                 });
