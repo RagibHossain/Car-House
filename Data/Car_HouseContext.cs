@@ -39,6 +39,7 @@ namespace Car_House.Data
             .Property(b => b.Color)
             .HasDefaultValue("none");
         }
+        //
     
 
     }
