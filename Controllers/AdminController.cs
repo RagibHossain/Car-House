@@ -117,7 +117,7 @@ namespace Car_House.Controllers
             }
 
             // this view is declared to show login again with new pass in Login Page
-          //  ViewBag.NewPass = true;
+         
             return RedirectToAction("Login", "Users");
         }
 
